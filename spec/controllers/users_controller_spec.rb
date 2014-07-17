@@ -12,4 +12,11 @@ RSpec.describe UsersController, type: :controller do
 			expect(response).to have_http_status(200)
 		end
 	end
+	describe "GET #show/:id" do
+		it "should render properly with status 200" do
+			get :show, id: @user.id
+			expect(response).to be_success
+			expect(response).to have_http_status(200)
+		end
+	end
 end

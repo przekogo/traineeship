@@ -11,4 +11,8 @@ RSpec.describe User, type: :model  do
 		t = User.reflect_on_association(:comments)
 		expect(t.macro).to equal :has_many
 	end
+	it 'should have many posts' do
+		t = User.reflect_on_association(:posts)
+		expect(t.macro).to equal :has_many
+	end
 end

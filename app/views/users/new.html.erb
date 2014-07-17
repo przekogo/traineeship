@@ -1,0 +1,9 @@
+<h1>Dodaj usera</h1>
+<%= form_for(@user) do |f| %>
+	<% @user.errors.full_messages.each do |err| %>
+		<li><%= err %></li>
+	<% end %>
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+	<%= f.submit 'Goł!' %>
+<% end %>

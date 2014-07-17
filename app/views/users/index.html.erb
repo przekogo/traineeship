@@ -1,0 +1,12 @@
+<h1>Lista userow</h1>
+
+<ul>
+<% @users.each do |u|%>
+	<li>
+		<%= u.email %>
+		<%=link_to'Poka', user_path(current_user.id)%>
+		<%=link_to'Edytuj', edit_user_path(u.id)%>
+	</li>
+<% end %>
+</ul>
+	<%=link_to'Nowy', new_user_path%>

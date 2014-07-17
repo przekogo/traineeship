@@ -1,0 +1,8 @@
+%h1 panel usera
+%h3=@user.email
+%hr
+%ul
+  -@user.posts.each do |post|
+    %li
+      =post.title
+      =link_to "pokaz", post_path(post.id)

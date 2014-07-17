@@ -1,0 +1,13 @@
+<h1>Lista psotow</h1>
+
+<ul>
+<% @posts.each do |p|%>
+	<li>
+		<%= p.title %>
+		<%=link_to'Poka', post_path(p.id)%>
+		<%=link_to'Edytuj', edit_post_path(p.id)%>
+		<%=link_to'Usun', post_path(p.id), method: :delete %>
+	</li>
+<% end %>
+</ul>
+	<%=link_to'Nowy', new_post_path%>

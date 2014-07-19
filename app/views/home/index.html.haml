@@ -1,12 +1,20 @@
-%h1
+%h1.text-center
 	=@temat
-%h1	Dzien dobry waćpanie
--if current_user
-	=current_user.email
-	=link_to'Wyloguj', destroy_user_session_path, method: :delete
--else
-	panie kolego
-	=link_to'Zaloguj',new_user_session_path
-	=link_to'Zarejestruj',new_user_registration_path
-=link_to'Józery', users_path
-=link_to'Postowie', posts_path
+%h2.text-center
+	Dzien dobry waćpanie
+	-if current_user
+		=current_user.email
+		%ul.h4.text-left
+			%li
+				=link_to'Józery', users_path
+			%li
+				=link_to'Postowie', posts_path
+			%li
+				=link_to'Wyloguj', destroy_user_session_path, method: :delete
+	-else
+		kolego
+		%ul.h4.text-left
+			%li
+				=link_to'Zaloguj',new_user_session_path
+			%li
+				=link_to'Zarejestruj',new_user_registration_path

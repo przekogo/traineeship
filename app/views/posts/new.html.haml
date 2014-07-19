@@ -1,0 +1,11 @@
+%h1 Dodaj post
+.form-group
+	= form_for(@post) do |f|
+		-@post.errors.full_messages.each do |err|
+			%li
+				=err
+		=f.label :title
+		=f.text_field :title, :class => 'form-control'
+		=f.label :content
+		=f.text_area :content, :class => 'form-control'
+		=f.submit 'Goł!', :class => 'btn btn-submit'

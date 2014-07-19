@@ -39,6 +39,7 @@ gem 'spring',        group: :development
 gem 'haml'
 gem 'rails_12factor', group: :production
 gem 'devise'
+gem 'thin', group: :development
 group :development, :test do
 	gem 'rspec-rails','~> 3.0.0'
 end

@@ -1,11 +1,21 @@
-%h1 Post
 %h3=@post.title
 %hr
-
 =@post.content
-
+%hr
+%h4 Komentarze użytkowników:
 %ul
-  -@post.comments.each do |comment|
-    %li
-      =comment.content
-      =comment.content
+	-@post.comments.each do |comment|
+		%li
+			=comment.user.email
+			%br
+			=comment.content
+%hr
+%h4 Komentuj
+=form_for(@comment) do |c|
+	-@post.errors.full_messages.each do |err|
+		%li
+			=err
+	=c.label :'Treść komentarza'
+	=c.text_area :content, :class => 'form-control'
+	=c.hidden_field :post_id, value: @post.id
+	=c.submit 'Dodaj komentarz', :class => 'btn btn-default'
